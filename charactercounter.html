@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple character counter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <style>
+        .textarea1{
+            max-width:400px;
+            padding: 20px;
+            margin: 0 auto;
+            border: 1px dashed #fff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px whitesmoke;
+        }
+
+        textarea{
+            width: 100%;
+            height: 150px;
+            resize: none;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        .counter{
+            margin-top: 10px;
+            font-size: 20px;
+            color: yellowgreen;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <section class="bg-light text-center py-5">
+        <a href="index.html" class="btn btn-secondary btn-xl mt-3">Take me back!</a>
+        <div class="container mt-7">
+            <h1 class="display-1 text-center">Character Counter</h1>
+        </div>
+    </section>
+
+    <section class="bg-primary text-center py-3">
+        <div class="container mt-7">
+            <h2 class="display-2 text-center">Enter some fun text!</h1>
+                <div class = "textarea1">
+                    <textarea class="form-control-lg mb-3" id="text_input" placeholder="Enter your message.." oninput="counter(this)"></textarea>
+                    <p class ="counter">Characters: <span id="char_count">0</span></p>
+                </div>
+        </div>
+    </section>
+
+    <section class="bg-light text-center py-5">
+        <p class="h3 text-black">Click here for a secret message!</p>
+        <button type="button" class="btn btn-primary btn-lg" onclick="funButton()">Fun button</button>
+        <p id="message" class="h3 text-black"></p>
+   </section>
+
+    <section class = "text-bg-secondary p-3">
+        <div class = "text-center">
+            Daniel Campbell
+        </div>
+        <div class="text-center">
+            <a href = "www.linkedin.com/in/daniel-campbell-160152115" alt="LinkedIn" class="link-light">LinkedIn</a>
+            <a href = "" alt="Github" class="link-light"> Github</a>
+            <a href = "mailto:danielcampbell1130@gmail.com" alt="Email" class="link-light"> Email me</a>
+        </div>
+        <div class = "text-center">
+            This is built with Bootstap5
+        </div>
+      </section>
+    
+    <script>
+        function counter(e){
+            document.getElementById("char_count").innerText = e.value.length;
+
+            if (e.value.length > 10){
+                document.getElementById("char_count").classList.add("text-danger");
+            }
+            else{
+                document.getElementById("char_count").classList.remove("text-danger");
+            
+            }
+        }
+
+        function funButton(){
+
+const randomMessages = [
+    "Have a great day!",
+    "You are doing amazing sweetie!",
+    "You look handome today!",
+    "You're a snack!",
+    "Look at me now"
+]
+
+const pickMe = Math.floor(Math.random() * randomMessages.length);
+
+const pickMeMessages = randomMessages[pickMe];
+
+const input1 = document.getElementById("message");
+
+input1.textContent = pickMeMessages;
+
+}
+        
+    </script>
+</body>
+</html>
